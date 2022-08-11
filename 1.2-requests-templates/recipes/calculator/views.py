@@ -28,6 +28,20 @@ def recipes(request, recipe):
     context = {}
     tmp_dict = {}
     for key, val in DATA[recipe].items():
-        tmp_dict.setdefault(key, round((val * servings), 2))
+        tmp_dict.setdefault(key, val * servings)
     context.setdefault('recipe', tmp_dict)
     return render(request, 'calculator/index.html', context)
+
+
+
+
+
+# Напишите ваш обработчик. Используйте DATA как источник данных
+# Результат - render(request, 'calculator/index.html', context)
+# В качестве контекста должен быть передан словарь с рецептом:
+# context = {
+#   'recipe': {
+#     'ингредиент1': количество1,
+#     'ингредиент2': количество2,
+#   }
+# }
