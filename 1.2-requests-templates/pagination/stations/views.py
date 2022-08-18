@@ -19,7 +19,7 @@ def bus_stations(request):
     current_page = request.GET.get('page', 1)
     page = paginator.get_page(current_page)
     context = {
-        'bus_stations': csv_file,
+        'bus_stations': page,
         'page': page,
     }
     return render(request, 'stations/index.html', context)
