@@ -77,7 +77,7 @@ DATABASES = {
         'NAME': 'netology_orm_migrations',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'PASSWORD': '427310',
+        'PASSWORD': '',
         
     }
 }
