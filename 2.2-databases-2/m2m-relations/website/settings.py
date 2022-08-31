@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'netology_m2m_relations',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'PASSWORD': '427310',
+        'PASSWORD': '',
         
     }
 }
