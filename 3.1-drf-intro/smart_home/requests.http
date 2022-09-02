@@ -30,13 +30,15 @@ PATCH {{baseUrl}}sensors/1/
 Content-Type: application/json
 
 {
+  "name": "TRS-1000",
   "location": "Перенес датчик на балкон"
+
 }
 
 ###
 
 # добавление измерения
-POST {{baseUrl}}/measurements/
+POST {{baseUrl}}measurements/
 Content-Type: application/json
 
 {
