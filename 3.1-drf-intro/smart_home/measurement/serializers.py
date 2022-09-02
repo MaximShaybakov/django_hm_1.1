@@ -6,6 +6,7 @@ class SensorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensor
         fields = ['id', 'name', 'location']
+
         
         
 class MeasurementSerializer(serializers.ModelSerializer):

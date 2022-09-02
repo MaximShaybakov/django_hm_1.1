@@ -1,20 +1,15 @@
 from django.contrib import admin
+from .models import Sensor, Measurement
 from .serializers import SensorSerializer, MeasurementSerializer
 
 # Register your models here.
-@admin.register(SensorSerializer)
+@admin.register(Sensor)
 class SensorAdmin(admin.ModelAdmin):
+    model = Sensor
     list_display = ['id', 'name', 'location']
-    
-    class Meta:
-        verbose_name = 'сенсор'
-        verbose_name_plural = 'сенсоры'
         
         
-@admin.register(MeasurementSerializer)
+@admin.register(Measurement)
 class MeasurementAdmin(admin.ModelAdmin):
+    model = Measurement
     list_display = ['id', 'temperature', 'date']
-    
-    class Meta:
-        verbose_name = 'измерение'
-        verbose_name_plural = 'измерения'
