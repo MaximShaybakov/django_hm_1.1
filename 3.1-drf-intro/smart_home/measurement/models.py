@@ -17,10 +17,8 @@ class Sensor(models.Model):
 class Measurement(models.Model):
     temperature = models.DecimalField(decimal_places=2, max_digits=4, verbose_name='temperature')
     created_at = models.DateField(verbose_name='created_at', auto_now=True)
-    sensor_id = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurement')
-    
-    def __str__(self):
-        return self.id
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurement')
+
     
     class Meta:
         verbose_name = 'Измерение'

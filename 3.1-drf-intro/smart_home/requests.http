@@ -9,40 +9,35 @@ Content-Type: application/json
 ###
 
 # получение датчика
-GET {{baseUrl}}sensor/1
+GET {{baseUrl}}sensor/2
 Content-Type: application/json
 
 ###
 
 # создание датчика
-POST {{baseUrl}}sensors/
+POST {{baseUrl}}sensor/
 Content-Type: application/json
 
 {
-  "name": "ESP32",
-  "location": "сауна"
+  "name": "GTR-500",
+  "location": "гараж"
 }
 
 ###
 
 # обновление датчика
-PATCH {{baseUrl}}sensors/1/
+PATCH {{baseUrl}}sensor/2/
 Content-Type: application/json
 
 {
-  "name": "TRS-1000",
-  "location": "Перенес датчик на балкон"
-
+  "name": "TRS-10000",
+  "location": "бассейн"
 }
 
 ###
 
-# добавление измерения
-POST {{baseUrl}}measurements/
-Content-Type: application/json
 
-{
-  "sensor": 1,
-  "temperature": 22.3
-}
+# список всех измерений
+GET {{baseUrl}}measurements/
+Content-Type: application/json
 

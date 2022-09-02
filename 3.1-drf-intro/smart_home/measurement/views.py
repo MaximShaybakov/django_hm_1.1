@@ -4,23 +4,19 @@ from rest_framework.response import Response
 from urllib import request
 from .serializers import SensorSerializer, MeasurementSerializer
 from .models import Sensor, Measurement
-from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView
 
 
 
-class SensorView(ListAPIView):
+class SensorView(ListCreateAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
-    
-    
-class SensorView_Retr(RetrieveAPIView):
-    queryset = Sensor.objects.all()
-    serializer_class =SensorSerializer
-    
+ 
+ 
 
-class SensorView_Create(ListCreateAPIView):
-    queryset = Sensor.objects.all()
-    serializer_class = SensorSerializer
+# class SensorView_Create(ListCreateAPIView):
+#     queryset = Sensor.objects.all()
+#     serializer_class = SensorSerializer
     
     
 class SensorView_Update(RetrieveUpdateAPIView):
@@ -28,6 +24,7 @@ class SensorView_Update(RetrieveUpdateAPIView):
     serializer_class = SensorSerializer
     
     
-class MeasurementView_Create(ListCreateAPIView):
+    
+class MeasurementView(ListCreateAPIView):
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer
