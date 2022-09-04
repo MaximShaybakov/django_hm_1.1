@@ -36,8 +36,17 @@ Content-Type: application/json
 
 ###
 
-
 # список всех измерений
 GET {{baseUrl}}measurements/
 Content-Type: application/json
+
+###
+
+# создать измерение
+POST {{baseUrl}}measurement/1/
+Content-Type: application/json
+
+{
+  "temperature": "18.00",
+}
 
