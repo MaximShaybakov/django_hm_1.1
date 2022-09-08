@@ -13,6 +13,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class ProductPositionSerializer(serializers.ModelSerializer):
+    
     # настройте сериализатор для позиции продукта на складе 
     class Meta:
         model = StockProduct
@@ -58,3 +59,4 @@ class StockSerializer(serializers.ModelSerializer):
                                                             'price': position.get('price')})
 
         return stock
+    
