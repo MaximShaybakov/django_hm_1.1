@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -10,7 +11,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name',
-                  'last_name',)
+                  'last_name', )
+        read_only_fields = ('username', )
 
 
 class AdvertisementSerializer(serializers.ModelSerializer):
@@ -24,10 +26,10 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         model = Advertisement
         fields = ('id', 'title', 'description', 'creator',
                   'status', 'created_at', )
+        read_only_fields = ['user', ]
 
     def create(self, validated_data):
         """Метод для создания"""
-
         # Простановка значения поля создатель по-умолчанию.
         # Текущий пользователь является создателем объявления
         # изменить или переопределить его через API нельзя.
