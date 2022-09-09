@@ -8,24 +8,25 @@ Content-Type: application/json
 
 ###
 
-# создание объявления
+# создание объявления (работает)
 POST {{baseUrl}}/advertisements/
 Content-Type: application/json
-Authorization: Token 307b789b8558cec088986ad3ea42cf701725219e
+Authorization: Token c73a132e29fd07d5585ea65fe3e33c01ddf93bbf
 
 {
-  "title": "Шкаф IKEA",
-  "description": "Срочно"
+  "title": "Нетология",
+  "description": "Пробейся в IT"
 }
 
 ###
 
-# попытка поменять объявление
-PATCH {{baseUrl}}/advertisements/1/
+# попытка поменять объявление (работает)
+PATCH {{baseUrl}}/advertisements/3/
 Content-Type: application/json
-Authorization: Token 307b789b8558cec088986ad3ea42cf701725219e
+Authorization: Token c73a132e29fd07d5585ea65fe3e33c01ddf93bbf
 
 {
+  "description": "За тебя уже подумали",
   "status": "CLOSED"
 }
 
@@ -37,8 +38,16 @@ Content-Type: application/json
 
 ###
 
-# фильтрация по дате
-GET {{baseUrl}}/advertisements/?created_at_before=2020-10-01
+# фильтрация по дате (не работает)
+GET {{baseUrl}}/advertisements/?created_at_after=2022-09-09
 Content-Type: application/json
 
-# 307b789b8558cec088986ad3ea42cf701725219e
+# root 307b789b8558cec088986ad3ea42cf701725219e
+# root2 c73a132e29fd07d5585ea65fe3e33c01ddf93bbf
+
+###
+
+# delete advertisement works
+DELETE {{baseUrl}}/advertisements/6/
+Content-Type: application/json
+Authorization: Token c73a132e29fd07d5585ea65fe3e33c01ddf93bbf
