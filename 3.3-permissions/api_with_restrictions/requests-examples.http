@@ -14,20 +14,21 @@ Content-Type: application/json
 Authorization: Token c73a132e29fd07d5585ea65fe3e33c01ddf93bbf
 
 {
-  "title": "Нетология",
-  "description": "Пробейся в IT"
+  "title": "Окна",
+  "description": "переходи на птиц",
+  "status": "OPEN"
 }
 
 ###
 
 # попытка поменять объявление (работает)
-PATCH {{baseUrl}}/advertisements/3/
+PATCH {{baseUrl}}/advertisements/7/
 Content-Type: application/json
 Authorization: Token c73a132e29fd07d5585ea65fe3e33c01ddf93bbf
 
 {
-  "description": "За тебя уже подумали",
-  "status": "CLOSED"
+  "description": "Just do it!",
+  "status": "OPEN"
 }
 
 ###
@@ -38,8 +39,8 @@ Content-Type: application/json
 
 ###
 
-# фильтрация по дате (не работает)
-GET {{baseUrl}}/advertisements/?created_at_after=2022-09-09
+# фильтрация по дате (работает)
+GET {{baseUrl}}/advertisements/?created_at_after=2022-09-12
 Content-Type: application/json
 
 # root 307b789b8558cec088986ad3ea42cf701725219e
@@ -48,6 +49,6 @@ Content-Type: application/json
 ###
 
 # delete advertisement works
-DELETE {{baseUrl}}/advertisements/6/
+DELETE {{baseUrl}}/advertisements/7/
 Content-Type: application/json
 Authorization: Token c73a132e29fd07d5585ea65fe3e33c01ddf93bbf

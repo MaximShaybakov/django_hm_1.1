@@ -1,3 +1,4 @@
+from urllib import request
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
@@ -38,11 +39,10 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         validated_data["creator"] = self.context["request"].user
         return super().create(validated_data)
 
+    # TODO: добавьте требуемую валидацию
     def validate(self, data):
         """Метод для валидации. Вызывается при создании и обновлении."""
-
-        # TODO: добавьте требуемую валидацию
-        if Advertisement.objects.filter(creator=self.context["request"].user,
-                                        status='OPEN').count() > 10:
-            raise ValidationError('To many open advertisements.')
+        if self.context['request'].method == 'POST':        
+            if Advertisement.objects.filter(status='OPEN') > 10:
+                raise ValidationError('>>> [!] To many open advertisements.')
         return data
