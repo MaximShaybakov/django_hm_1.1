@@ -43,8 +43,8 @@ def test_api(client):
     assert response.status_code == 200
     
     
-# @pytest.mark.django_db
-# def test_create_course(courses, courses_factory):
-#     course = courses_factory(_quantity=10)
-#     assert len(course) == len(courses)
+@pytest.mark.django_db
+def test_create_course(courses, courses_factory):
+    course = courses_factory(_quantity=10)
+    assert len(course) == len(courses)
     
