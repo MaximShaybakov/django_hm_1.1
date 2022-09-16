@@ -80,12 +80,11 @@ WSGI_APPLICATION = 'django_testing.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres',
         'NAME': 'netology_django_testing',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'PASSWORD': '427310',
-        
+        'USER': 'postgres',
+        'PASSWORD': '427310'
     }
 }
 
@@ -112,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Yekaterinburg'
 
 USE_I18N = True
 
@@ -128,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',

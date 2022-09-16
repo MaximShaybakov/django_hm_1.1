@@ -1,0 +1,13 @@
+@baseUrl = http://127.0.0.1:8000/api/v1/courses/
+
+POST {{baseUrl}}
+Content-Type: application/json
+{
+    "name": "alchemy",
+    "students": [2]
+}
+
+###
+
+GET {{baseUrl}}
+Content-Type: application/json

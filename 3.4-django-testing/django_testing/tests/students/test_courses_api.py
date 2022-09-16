@@ -1,26 +1,50 @@
 import pytest
-from django.contrib.auth.models import User
 from rest_framework.test import APIClient
 from model_bakery import baker
 
-from students.models import Student
+from students.models import Student, Course
 
+# client = APIClient()
 
 @pytest.fixture
 def client():
     return APIClient()
 
-@pytest.fixture
-def student():
-    return Student.objects.create('admin')
 
 @pytest.fixture
-def students():
-    return Student.objects.all()
+def courses_factory():
+    def factory(*args, **kwargs):
+        return baker.make(Course, *args, **kwargs)
+    return factory
+
+
+@pytest.fixture
+def students_factory():
+    def factory(*args, **kwargs):
+        return baker.make(Student, *args, **kwargs)
+    return factory
+        
+
+@pytest.fixture
+def students(client):
+    response = client.get('/courses/')
+    return response.json()
+
+
+@pytest.fixture
+def courses(client):
+    response = client.get('/courses/')
+    return response.json()
+
 
 @pytest.mark.django_db
-def test_create_students():
+def test_api(client):
+    response = client.get('/courses/')
+    assert response.status_code == 200
     
     
-    # data = response.json()
-    # assert len(data) == 1
+# @pytest.mark.django_db
+# def test_create_course(courses, courses_factory):
+#     course = courses_factory(_quantity=10)
+#     assert len(course) == len(courses)
+    
