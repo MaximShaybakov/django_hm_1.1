@@ -23,12 +23,6 @@ def students_factory():
     def factory(*args, **kwargs):
         return baker.make(Student, *args, **kwargs)
     return factory
-        
-
-@pytest.fixture
-def students(client):
-    response = client.get('/courses/')
-    return response.json()
 
 
 @pytest.fixture
