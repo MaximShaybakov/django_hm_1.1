@@ -52,7 +52,7 @@ def test_create_course(client, courses, courses_factory):
     assert len(course) == len(courses(client))
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db # доделать!!!
 def test_get_list_course(client, courses, courses_factory):
     course = courses_factory(_quantity=10)
     response = client.get('/courses/')
