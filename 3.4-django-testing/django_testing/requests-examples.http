@@ -9,5 +9,5 @@ Content-Type: application/json
 
 ###
 
-GET {{baseUrl}}1/
+GET {{baseUrl}}?id=1
 Content-Type: application/json
