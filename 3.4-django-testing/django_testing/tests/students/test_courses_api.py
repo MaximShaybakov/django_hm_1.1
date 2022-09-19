@@ -49,6 +49,18 @@ def test_api(client):
     assert response.status_code == 200
 
 
+@pytest.mark.django_db # если я верно понял не хватало этого теста
+def test_get_course(client, courses, courses_factory):
+    '''get 1 course test'''
+    course = courses_factory(_quantity=1)
+    response = client.get(f'/courses/?id={course[1].id})
+    # response = client.get.('/courses/1/')
+    data = response.json()
+    assert response.status_code == 200
+    assert data[0]['id'] == course[1].id
+    assert data[0]['name'] == course[1].name
+
+
 @pytest.mark.django_db
 def test_get_course_by_id(client, courses, courses_factory):
     '''taking any course by id'''
