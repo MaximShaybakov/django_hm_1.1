@@ -53,7 +53,7 @@ def test_api(client):
 def test_get_course(client, courses, courses_factory):
     '''get 1 course test'''
     course = courses_factory(_quantity=1)
-    response = client.get(f'/courses/?id={course[1].id})
+    response = client.get(f'/courses/?id={course[1].id}')
     # response = client.get('/courses/1/')
     data = response.json()
     assert response.status_code == 200
